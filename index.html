@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facilita+ | Acesso Digital a Serviços Públicos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" onclick="voltarParaInicio(); return false;" aria-label="Página Inicial Facilita+">
+                <img src="lc_fe.svg" alt="Facilita+" class="header-logo">
+            </a>
+        </div>
+    </header>
+
+    <!-- Banner Principal / Busca -->
+    <section class="hero">
+        <h1>Facilitando o Acesso Digital a Serviços Públicos</h1>
+        <p>Aprenda a emitir documentos, agendar consultas e acessar seus direitos de forma simples.</p>
+        
+        <form class="search-box" onsubmit="event.preventDefault(); buscarServico();">
+            <input type="text" id="search-input" placeholder="O que você procura? Ex: RG, CPF, ITR...">
+            <button type="submit">Buscar</button>
+        </form>
+    </section>
+
+    <!-- BANNER DE DESTAQUE: CONTA GOV.BR -->
+    <section class="gov-highlight-card" aria-label="Destaque Conta gov.br">
+        <div class="gov-card-content">
+            <div class="gov-card-icon" aria-hidden="true">🔑</div>
+            <div class="gov-card-info">
+                <span class="gov-badge">Pré-requisito Essencial</span>
+                <h3>Ainda não tem uma conta gov.br?</h3>
+                <p>A maioria dos serviços públicos exige uma conta gov.br. Aprenda a criar e aumentar o nível da sua conta (Bronze, Prata ou Ouro).</p>
+            </div>
+        </div>
+        <div class="gov-card-actions">
+            <!-- Ação 1: Abre o tutorial interno da plataforma -->
+            <button class="btn-gov-tutorial" onclick="carregarTutorialGov()">Ver Passo a Passo</button>
+            <!-- Ação 2: Abre o site oficial do governo em nova aba -->
+            <a href="https://www.gov.br/pt-br/servicos/criar-sua-conta-gov.br" target="_blank" rel="noopener noreferrer" class="btn-gov-external">
+                Acessar gov.br ↗
+            </a>
+        </div>
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <!-- Categorias Principais -->
+        <div id="home-view">
+            <h2>Categorias de Serviços</h2>
+            <div class="categories-grid">
+                <button class="cat-card" onclick="abrirCategoria('documentos')">
+                    <span class="icon">📄</span>
+                    <span>Documentos</span>
+                </button>
+                <button class="cat-card cat-saude" onclick="abrirCategoria('saude')">
+                    <span class="icon">🏥</span>
+                    <span>Saúde</span>
+                </button>
+                <button class="cat-card" onclick="abrirCategoria('beneficios')">
+                    <span class="icon">💰</span>
+                    <span>Benefícios</span>
+                </button>
+                <button class="cat-card" onclick="abrirCategoria('tributos')">
+                    <span class="icon">🧾</span>
+                    <span>Tributos</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Área de Detalhes da Categoria -->
+        <div id="details-view" style="display: none;">
+            <button class="btn-voltar" onclick="voltarParaInicio()">← Voltar para Categorias</button>
+            
+            <h2 id="category-title">Nome da Categoria</h2>
+
+            <!-- Submenu de Serviços da Categoria -->
+            <div id="services-options" class="services-links-grid">
+                <!-- Os botões dos serviços específicos aparecerão aqui -->
+            </div>
+
+            <!-- Área onde o Tutorial Selecionado Aparece -->
+            <section class="tutorials-section" id="tutorial-container" style="display: none;">
+                <div class="tutorial-card">
+                    <div class="tutorial-header-actions">
+                        <h3 id="tutorial-title">Título do Serviço</h3>
+                        <button id="btn-read-tutorial" class="btn-audio" onclick="lerTutorialEmVozAlta()" aria-label="Ouvir o passo a passo em áudio">
+                            <svg class="icon-audio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                            </svg>
+                            <span class="btn-text">Ouvir o passo a passo</span>
+                        </button>
+                    </div>
+                    <p id="tutorial-desc">Descrição do serviço.</p>
+                    <div id="tutorial-steps"></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Seção de Notícias e Prazos Úteis -->
+        <section class="news-section">
+            <div class="news-header">
+                <h2>📢 Fique Atento aos Prazos</h2>
+                <p>Acompanhe datas importantes de serviços e obrigações públicas.</p>
+            </div>
+        
+            <div id="news-grid" class="news-grid">
+                <!-- Os cards de notícias serão inseridos aqui via JavaScript -->
+            </div>
+        </section>
+            
+        <!-- Chamada em Destaque para o Formulário de Feedback -->
+        <section class="feedback-banner-container">
+            <div class="feedback-card-highlight">
+                <div class="feedback-badge">⚡Sua Opinião Importa</div>
+                
+                <div class="feedback-content">
+                    <div class="feedback-icon-wrapper">
+                        <span class="feedback-icon" aria-hidden="true">🗨️</span>
+                    </div>
+                    
+                    <div class="feedback-text">
+                        <h3>Ajude a melhorar a plataforma Facilita+</h3>
+                        <p>Sua avaliação leva menos de <strong>1 minuto</strong> e é 100% anônima.</p>
+                        <p>Suas respostas ajudam no aprimoramento deste projeto.</p>
+                    </div>
+                    
+                    <a href="https://forms.gle/YBi7c4UaeL1KM4ss5" target="_blank" rel="noopener noreferrer" class="btn-feedback-cta">
+                        <span>Responder Pesquisa</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.5" fill="none">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Logo no Rodapé -->
+            <img src="./logo_fe.svg" alt="Facilita+" class="footer-logo">
+            <div class="footer-info">
+            <!-- Informações e Aviso de Privacidade -->
+            <p>&copy; 2026 - <strong>Facilita+ Ervália</strong> - Guia de Serviços Públicos.</p>
+            <p>Elaborado por <strong>Cirleia A. de Souza</strong> - Atividade Extensionista do Curso de Análise e Desenvolvimento de Sistemas</p>
+            <p class="politica-privacidade">
+                🔒 <strong>Privacidade:</strong> Este site é meramente informativo. Não solicitamos, coletamos nem armazenamos nenhuma informação pessoal.
+            </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Controle de Acessibilidade Flutuante -->
+    <div class="acessibilidade-flutuante">
+        <button id="btn-font-increase" title="Aumentar Fonte" aria-label="Aumentar tamanho do texto">A+</button>
+        <button id="btn-font-decrease" title="Diminuir Fonte" aria-label="Diminuir tamanho do texto">A-</button>
+        <button id="btn-contrast" title="Alto Contraste" aria-label="Alternar alto contraste">🎨 Contraste</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

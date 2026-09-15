@@ -1,0 +1,914 @@
+/* Variáveis de cores vibrantes e acessíveis */
+:root {
+    --primary: #0F2C59;        
+    --primary-hover: #0066CC;    
+    --accent: #FF6B35;           
+    --bg-main: #f0f4f8;          
+    --card-bg: #F8F9FA;          
+    --text-color: #0f172a;       
+    --text-muted: #334155;      
+    --border-color: #cbd5e1;    
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Modo Alto Contraste */
+body.high-contrast {
+    --primary: #ffff00;
+    --primary-hover: #e6e600;
+    --accent: #00ffff;
+    --bg-main: #000000;
+    --card-bg: #121212;
+    --text-color: #ffffff;
+    --text-muted: #e2e8f0;
+    --border-color: #ffffff;
+    --shadow: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DM Sans', sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Cabeçalho principal */
+.header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Container da logo */
+.header-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo para a imagem SVG da logo (usando a classe header-le_fc) */
+.header-lc_fe, .header-logo {
+    height: 70px;       /* Define a altura exata para o SVG aparecer */
+    width: auto;        /* Preserva a proporção */
+    display: block;
+}
+
+/* Container da barra flutuante */
+.acessibilidade-flutuante {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 999999;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid #cbd5e1;
+}
+
+/* Botões da barra */
+.acessibilidade-flutuante button {
+    width: 100% !important;
+    background-color: #f0f4f8 !important;
+    color: #1a2b4c !important;
+    border: 1px solid #cbd5e1 !important;
+    padding: 8px 12px !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s, transform 0.1s !important;
+    white-space: nowrap !important;
+}
+
+.acessibilidade-flutuante button:hover {
+    background-color: #e2e8f0 !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Botão específico de Contraste */
+#btn-contrast {
+    background-color: #1e3a8a !important;
+    border: 1px solid #1e3a8a !important;
+    color: #ffffff !important;
+}
+
+#btn-contrast:hover {
+    background-color: #1d4ed8 !important;
+}
+
+/* Ajuste Responsivo para Celular */
+@media (max-width: 768px) {
+    .acessibilidade-flutuante {
+        top: auto !important;
+        bottom: 15px !important;
+        right: 50% !important;
+        transform: translateX(50%) !important;
+        flex-direction: row !important;
+        border-radius: 25px !important;
+        padding: 8px 12px !important;
+    }
+
+    .acessibilidade-flutuante button {
+        width: auto !important;
+        padding: 6px 10px !important;
+        font-size: 0.85rem !important;
+    }
+}
+/* Banner Principal / Hero */
+.hero {
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+    color: #ffffff;
+    text-align: center;
+    padding: 2rem 10%;
+}
+
+.hero h1 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: #e2e8f0;
+}
+
+/* Container da busca */
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Campo de texto */
+.search-box input {
+    padding: 15px 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px; 
+    font-size: 1rem;
+    flex: 1;
+}
+
+/* Estado normal do Botão */
+.search-box button {
+    background-color: #0056b3;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1; /* Garante que o botão fique sobreposto e clicável */
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Efeito HOVER (ao passar o mouse) */
+.search-box button:hover {
+    background-color: #FF6B35; 
+    transform: translateY(-1px); /* Leve elevação ao passar o mouse */
+}
+
+/* Efeito ACTIVE (ao clicar) */
+.search-box button:active {
+    transform: translateY(0);
+}
+
+/* Banner de destaque - GOV.BR */
+.gov-highlight-card {
+    background-color: #F8FAFC;
+    border: 2px solid #0066CC;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 20px 0 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.08);
+}
+
+.gov-card-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+}
+
+.gov-card-icon {
+    font-size: 2.2rem;
+    background: #E6F0FA;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.gov-card-info h3 {
+    margin: 4px 0 6px 0;
+    color: #0F2C59;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.gov-card-info p {
+    margin: 0;
+    color: #475569;
+    font-size: 0.95rem;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.gov-badge {
+    background-color: #0066CC;
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+}
+
+.gov-card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 170px;
+}
+
+.btn-gov-tutorial, 
+.btn-gov-external {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Botão principal (Tutorial interno) */
+.btn-gov-tutorial {
+    background-color: #0066CC;
+    color: #FFFFFF;
+    border: none;
+}
+
+/* Efeito ao passar o mouse */
+.btn-gov-tutorial:hover {
+    background-color: #0F2C59;
+}
+
+/* Botão secundário (Link externo gov.br) */
+.btn-gov-external {
+    background-color: transparent;
+    color: #0066CC;
+    border: 1.5px solid #0066CC;
+}
+
+/* Efeito ao passar o mouse */
+.btn-gov-external:hover {
+    background-color: #E6F0FA;
+    color: #0F2C59;
+}
+
+/* Estilo Base do Botão Voltar */
+.btn-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+/* Efeito ao passar o mouse */
+.btn-voltar:hover {
+    background: linear-gradient(135deg, #1a252f, #2980b9);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* Efeito ao clicar */
+.btn-voltar:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Botão Voltar - Modo Alto Contraste */
+body.high-contrast .btn-voltar {
+    background: #ffff00;
+    color: #000000;
+    border: 2px solid #ffffff;
+    font-weight: bold;
+}
+
+/* Botão Voltar Alto Contraste - Efeito ao passar o mouse */
+body.high-contrast .btn-voltar:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+/* ==========================================
+   BOTÃO DE ÁUDIO (OUVIR TUTORIAL)
+   ========================================== */
+.btn-audio {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #0066CC, #0F2C59);
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 102, 204, 0.2);
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.btn-audio:hover {
+    background: linear-gradient(135deg, #0F2C59, #081b38);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 102, 204, 0.3);
+}
+
+.btn-audio:active {
+    transform: translateY(0);
+}
+
+/* Animação quando o áudio estiver tocando */
+.btn-audio.tocando {
+    background: linear-gradient(135deg, #16a34a, #15803d);
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+}
+
+/* Botão de Áudio - Modo Alto Contraste */
+body.high-contrast .btn-audio {
+    background: #ffff00;
+    color: #000000;
+    border: 2px solid #ffffff;
+    font-weight: bold;
+}
+
+body.high-contrast .btn-audio:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+/* Tutoriais */
+.tutorial-card p,
+#tutorial-desc,
+#tutorial-steps,
+#tutorial-steps p,
+#tutorial-steps li {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Estilo para links inseridos dentro dos passos dos tutoriais */
+#tutorial-steps a,
+.tutorial-link {
+    color: #0066CC; 
+    font-weight: 600;
+    text-decoration: underline;
+    word-break: break-word; /* Impede que URLs longas quebrem a tela no celular */
+    transition: color 0.2s ease;
+}
+
+/* Efeito ao passar o mouse */
+#tutorial-steps a:hover,
+.tutorial-link:hover {
+    color: #0F2C59; 
+}
+
+/* Áreas de Conteúdo */
+.container {
+    padding: 3rem 8%;
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: var(--primary);
+    border-bottom: 3px solid var(--accent);
+    display: inline-block;
+    padding-bottom: 0.3rem;
+}
+
+/* Categorias de Serviços */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 3.5rem;
+}
+
+/*Retângulos das categorias*/
+.cat-card {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.8rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    color: var(--text-color);
+    box-shadow: var(--shadow);
+}
+
+/* Efeito ao passar o mouse */
+.cat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-hover);
+    box-shadow: 0 10px 15px -3px rgba(11, 7, 245, 0.589);
+}        
+
+/*Ícones das categorias*/
+.cat-card .icon {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Grid de Opções de Serviços */
+.services-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Botões dos Serviços da Categoria */
+.service-opt-btn {
+    background: #1d4fd860;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.2rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: var(--shadow);
+}
+
+.service-opt-btn strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin-bottom: 0.4rem;
+}
+
+.service-opt-btn p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.service-opt-btn:hover {
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    background-color: #f8fafc;
+}
+
+/* Seção de Notícias e Prazos */
+.news-section {
+    margin: 3rem 0;
+}
+
+/* Aviso Sobre Prazos */
+.news-header h2 {
+    color: #0F2C59; /* Texto: Fique atento aos prazos */
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.news-header p {
+    color: #2D3748; /* Texto: Acompanhe datas importantes */ 
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+/* Título e texto - Alto Contraste */
+body.high-contrast .news-header h2,
+body.high-contrast .news-header p{
+    color: #FFFF00;
+}
+
+
+/* Grid de Notícias */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+}
+
+/* Banner de Notícias */
+.news-card {
+    background-color: #ffffffd5;
+    border: 1px solid #E2E8F0;
+    border-top: 4px solid #0F2C59; /* Borda dos banners */
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Banner de Notícias - Efeito ao passar o mouse */
+.news-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Banner de Prazo Ativo */
+.news-badge {
+    display: inline-block;
+    background-color: #FF6B35;
+    color: #F8F9FA;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    margin-bottom: 0.75rem;
+    border: 1px solid #f84803;
+}
+
+/* Título do Banner de Notícias */
+.news-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.15rem;
+    color: #0F2C59;
+    font-weight: 700;
+}
+
+/* Texto do Banner de Notícias */
+.news-card p {
+    margin: 0 0 1.25rem 0;
+    font-size: 0.925rem;
+    color: #2D3748;
+    line-height: 1.5;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Link do Banner de Notícias */
+.news-link {
+    color: #0066CC;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: color 0.2s ease;
+}
+
+/* Banner de Notícias - Efeito ao passar o mouse */
+.news-link:hover {
+    color: #0F2C59;
+    text-decoration: underline;
+}
+
+/* Banner de Notícias - Alto Contraste */
+body.high-contrast .news-card {
+    background: #000000;
+    border: 2px solid #FFFF00;
+}
+
+/* Etiqueta Aviso - Alto Contraste */
+body.high-contrast .news-badge {
+    background: #FFFF00;
+    color: #000000;
+    border: none;
+}
+
+/* Título e texto - Alto Contraste */
+body.high-contrast .news-card h3,
+body.high-contrast .news-card p,
+body.high-contrast .news-link {
+    color: #FFFF00;
+}
+
+/* Container de Alinhamento Superior do Card de Feedback */
+.feedback-banner-container {
+    max-width: 1200px;
+    margin: 4rem auto 0 auto;
+    padding: 0 1.5rem 3rem 1.5rem;
+    box-sizing: border-box;
+}
+
+/* Card Principal com Gradiente e Borda */
+.feedback-card-highlight {
+    position: relative;
+    background: linear-gradient(135deg, #0284c7 0%, #1e40af 100%);
+    border-radius: 16px;
+    padding: 2.2rem 2.5rem 2rem 2.5rem;
+    color: #ffffff;
+    box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.35), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+.feedback-card-highlight:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px -5px rgba(2, 132, 199, 0.45), 0 10px 12px -5px rgba(0, 0, 0, 0.15);
+}
+
+/* Badge (Etiqueta) de Destaque */
+.feedback-badge {
+    position: absolute;
+    top: 1rem;
+    left: 2.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    color: #f0f9ff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Disposição do Conteúdo Interno */
+.feedback-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 0.75rem;
+}
+
+/* Ícone em Círculo com Efeito Glow */
+.feedback-icon-wrapper {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Ícone Feedback */
+.feedback-icon {
+    font-size: 1.8rem;
+}
+
+/* Textos e Tipografia */
+.feedback-text {
+    flex: 1;
+}
+
+/* Título Feedback */
+.feedback-text h3 {
+    margin: 0 0 0.4rem 0;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+}
+
+/* Texto Feedback */
+.feedback-text p {
+    margin: 0;
+    color: #e0f2fe;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Texto Feedback */
+.feedback-text strong {
+    color: #ffffff;
+    text-decoration: underline;
+    text-decoration-color: #38bdf8;
+}
+
+/* Botão Call To Action (CTA) */
+.btn-feedback-cta {
+    background-color: #ffffff;
+    color: #0369a1;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.9rem 1.6rem;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+}
+
+/* Feedback - Efeito ao passar o mouse */
+.btn-feedback-cta:hover {
+    background-color: #f0f9ff;
+    color: #0284c7;
+    transform: scale(1.03);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Ícone Feedback */
+.btn-feedback-cta .arrow-icon {
+    transition: transform 0.2s ease;
+}
+
+/* Feedback -Efeito ao passar o mouse */
+.btn-feedback-cta:hover .arrow-icon {
+    transform: translateX(4px);
+}
+
+/* Alto Contraste - Instruções Criar Conta Gov */
+body.high-contrast .gov-highlight-card {
+    background-color: #000000;
+    border: 2px solid #FFFF00;
+}
+
+/* Alto Contraste - Card Conta Gov */
+body.high-contrast .gov-card-info h3,
+body.high-contrast .gov-card-info p {
+    color: #FFFFFF !important;
+}
+
+/* Alto Contraste - Etiqueta Conta Gov */
+body.high-contrast .gov-badge {
+    background-color: #FFFF00;
+    color: #000000;
+}
+
+/* Alto Contraste - Tutorial Criar Conta Gov */
+body.high-contrast .btn-gov-tutorial {
+    background-color: #FFFF00;
+    color: #000000;
+}
+
+/* Alto Contraste - Botão para link externo */
+body.high-contrast .btn-gov-external {
+    border-color: #FFFF00;
+    color: #FFFF00;
+}
+
+/* Alto Contraste - Card de Feedback*/
+body.high-contrast .feedback-card-highlight {
+    background: #000000;
+    border: 3px solid #ffff00;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+/* Alto Contraste - Etiqueta Feedback */
+body.high-contrast .feedback-badge {
+    background: #ffff00;
+    color: #000000;
+    border: none;
+    font-weight: bold;
+}
+
+/* Alto Contraste - Feedback Texto */
+body.high-contrast .feedback-text p,
+body.high-contrast .feedback-text h3 {
+    color: #ffffff;
+}
+
+/* Alto Contraste - Feedback link externo */
+body.high-contrast .btn-feedback-cta {
+    background: #ffff00;
+    color: #000000;
+    border: 2px solid #ffffff;
+}
+
+/* Alto Contraste - Tutorial */
+body.high-contrast #tutorial-steps a,
+body.high-contrast .tutorial-link {
+    color: #FFFF00 !important; /* AMARELO */
+    font-weight: bold;
+}
+
+/* Responsividade (Celulares e Tablets) */
+@media (max-width: 768px) {
+    .feedback-banner-container {
+        margin: 2.5rem auto 2rem auto;
+        padding: 0 1rem;
+    }
+
+    .feedback-card-highlight {
+        padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+    }
+
+    .feedback-badge {
+        left: 1.5rem;
+    }
+
+    .feedback-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.25rem;
+    }
+
+    .feedback-icon-wrapper {
+        margin: 0 auto;
+    }
+
+    .btn-feedback-cta {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+}
+
+/*  Em telas pequenas (celulares), volta ao alinhamento à esquerda para evitar grandes espaçamentos */
+@media (max-width: 600px) {
+    .tutorial-card p,
+    #tutorial-desc,
+    #tutorial-steps p,
+    #tutorial-steps li,
+    .news-card p,
+    .feedback-text p {
+        text-align: left;
+    }
+}
+
+/* --- RODAPÉ --- */
+footer {
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+    color: #ffffff;            /* Cor do texto */
+    padding: 15px 20px;        
+}
+
+/* Container do rodapé */
+.footer-container {
+    display: flex;
+    align-items: center;       /* Alinha verticalmente no centro */
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+/* Logo maior à esquerda */
+.footer-logo {
+    max-height: 70px;          /*Tamanho da logo*/
+    width: auto;
+    display: block;
+}
+
+/* Informações e textos centralizados */
+.footer-info {
+    flex: 1;
+    text-align: center;        
+}
+
+.footer-info p {
+    margin: 3px 0;
+    color: #ffffff;            
+    font-size: 0.9rem;
+}
+
